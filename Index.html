@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app>
+	<head>
+	    <meta charset="utf-8">
+		<title>El Blog de Felipe</title>
+                <link rel="stylesheet" type="text/css" href="styles.css"> 
+		
+		
+	</head>
+	
+	<body ng-controller="ComentariosController">
+            <h1>El Blog de Felipe</h1>	
+		<center> Hola este es mi blog, el tema de hoy son los resultados de la competicion 
+		de dota mundial, que opinan? cuales fueron sus equipos favoritos? Comenten :)
+		</center>
+		<br>
+		<br>
+		<br>
+	    <div class="wrapper">
+			<h3>Comentarios</h3>
+			<div class="comentario-item" ng-repeat="comentarios in comentarios| orderBy:'autor'" >
+				<div class="autor">{{comentarios.autor}} - {{comentarios.email}}</div>
+				<hr align="left" noshade="noshade" size="2" width="100%" />
+				<span class="comentario">{{comentarios.contenido}} </span>	
+			</div>
+	     </div>	
+	<br/>
+        <center><button ng-click="ShowForm()" ng-hide="formVisibility">Añadir comentario</button></center>
+	
+	<center>
+		<div ng-show="formVisibility" class="wrapper">
+			<h2>Añadir un comentario</h2>
+			Nombre: <input type="text" ng-model="nuevoComentario.autor"></input>
+			<br><br>
+			E-mail: <input type="text" ng-model="nuevoComentario.email"></input>
+			<br><br>
+			Comentario: <input type="text" ng-model="nuevoComentario.contenido"></input>
+			<br><br>
+			<button ng-click="Save()">Guardar</button>
+		</div>
+	</center>
+
+	<script src= "angular.min.js" type="text/javascript"></script>
+	<script src= "scripts1.js" type="text/javascript"></script>
+	
+	</body>
+</html>
+
+
